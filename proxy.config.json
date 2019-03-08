@@ -1,0 +1,7 @@
+{
+  "/": {
+      "target": "http://10.1.236.130:8080/soms",
+      "secure": false,
+      "changeOrigin": true
+  }
+}
