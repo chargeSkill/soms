@@ -107,7 +107,13 @@ export class DefaultInterceptor implements HttpInterceptor {
       url = environment.SERVER_URL + url;
     }
 
-    const newReq = req.clone({ url });
+    const newReq = req.clone({ 
+      url
+      // setHeaders: {
+      //   'Content-Type': 'application/json',
+      //   'Accept': 'application/json'
+      // }
+    });
     return next.handle(newReq).pipe(
       mergeMap((event: any) => {
         // 允许统一对请求错误处理
