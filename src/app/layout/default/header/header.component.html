@@ -6,12 +6,26 @@
   </a>
 </div>
 <div class="alain-default__nav-wrap">
-  <ul class="alain-default__nav">
-    
+  <ul class="alain-default__nav navList">
+    <li>
+      <span>中文</span>
+      <i nz-icon type="down" theme="outline"></i>
+    </li>
+    <li>
+      <span>报告</span>
+      <i nz-icon type="down" theme="outline"></i>
+    </li>
+    <li>
+      <span>消息中心</span>
+    </li>
+    <li *ngFor="let item of headerData">
+      <i nz-icon type="{{item.icon}}" theme="outline"></i>
+      <span>{{item.text}}</span>
+    </li>
   </ul>
   <!-- <header-search class="alain-default__search" [toggleChange]="searchToggleStatus"></header-search> -->
   <ul class="alain-default__nav">
-    
+
     <li class="hidden-mobile">
       <header-user></header-user>
     </li>
