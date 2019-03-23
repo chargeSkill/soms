@@ -10,23 +10,22 @@ import { NavApiService } from 'app/api/nav.service';
 export class HeaderComponent {
   searchToggleStatus: boolean;
 
-  constructor(public settings: SettingsService, public api: NavApiService) { 
-    // this.login({
-    //   userName: 'admin',
-    //   password: '123123'
-    // })
-    this.getNav();
+  constructor(public settings: SettingsService, public api: NavApiService) {
+    this.getCylinder({
+      moduleId: '5c7361e3abbcdd0f00611a10'
+    });
+    this.getNav({});
   }
 
-  getNav(){
-    this.api.getJson().subscribe(data => {
+  getNav(params){
+    this.api.getNavList(params).subscribe(data => {
       console.log('get json',data);
     })
   }
 
-  login(params){
-    this.api.login(params).subscribe(res => {
-      console.log(res,'login')
+  getCylinder(params){
+    this.api.getCylinder(params).subscribe(res => {
+      console.log(res,'getCylinder')
     })
   }
 

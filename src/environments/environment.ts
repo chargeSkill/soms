@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   useHash: true,
   hmr: false,
+  baseurl: 'localhost:4200/'
 };
 
 /*

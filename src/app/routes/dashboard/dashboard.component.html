@@ -1,11 +1,35 @@
 <div class="alain-default__content-title">
-  <div class="card-container">
-    <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
-      <nz-tab *ngFor="let tab of tabs" [nzTitle]="'Tab Title ' + tab">
-        <p>Content of Tab Pane {{ tab }}</p>
-        <p>Content of Tab Pane {{ tab }}</p>
-        <p>Content of Tab Pane {{ tab }}</p>
-      </nz-tab>
-    </nz-tabset>
-  </div>
+  <nz-layout>
+    <div class="header-title">电力系统--1#主柴油发电机--气缸</div>
+    <div class="card-container">
+      <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'" [nzSize]="'large'">
+        <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.title">
+          <div class="bar-box">
+            <h4>A1缸气缸排温</h4>
+            <h4>（℃）</h4>
+            <div class="bar">
+              <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+              <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+              <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
+              <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+              <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+              <div class="bar-analog-icon"></div>
+              <div class="bar-analog-value bar-status-warn-color">89.1</div>
+            </div>
+          </div>
+          <div class="bar-box">
+            <div class="bar">
+              <span class="bar-status bar-status-danger bar-status-unnormal"></span>
+              <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+              <span class="bar-status bar-status-normal bar-status-unnormal"></span>
+              <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+              <span class="bar-status bar-status-danger"></span>
+              <div class="bar-analog-icon"></div>
+            </div>
+          </div>
+          <p>Content of Tab Pane {{ tab.title }}</p>
+        </nz-tab>
+      </nz-tabset>
+    </div>
+  </nz-layout>
 </div>

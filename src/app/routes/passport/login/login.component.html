@@ -5,25 +5,25 @@
       <nz-form-item>
         <nz-form-control>
           <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-user">
-            <input nz-input formControlName="userName" placeholder="username: admin or user">
+            <input nz-input formControlName="userName" placeholder="请输入账号">
           </nz-input-group>
           <nz-form-explain *ngIf="userName.dirty && userName.errors">
-            Please enter mobile number!
+            请输入账号!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-control>
           <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-lock">
-            <input nz-input type="password" formControlName="password" placeholder="password: ng-alain.com">
+            <input nz-input type="password" formControlName="password" placeholder="请输入密码">
           </nz-input-group>
           <nz-form-explain *ngIf="password.dirty && password.errors">
-            Please enter password!
+            请输入密码!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </nz-tab>
-    <nz-tab [nzTitle]="'手机号登录'">
+    <!-- <nz-tab [nzTitle]="'手机号登录'">
       <nz-form-item>
         <nz-form-control>
           <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-user">
@@ -58,15 +58,15 @@
           </nz-row>
         </nz-form-control>
       </nz-form-item>
-    </nz-tab>
+    </nz-tab> -->
   </nz-tabset>
   <nz-form-item>
     <nz-col [nzSpan]="12">
       <label nz-checkbox formControlName="remember">自动登录</label>
     </nz-col>
-    <nz-col [nzSpan]="12" class="text-right">
+    <!-- <nz-col [nzSpan]="12" class="text-right">
       <a class="forgot" (click)="msg.error('请找欧阳锋')">忘记密码</a>
-    </nz-col>
+    </nz-col> -->
   </nz-form-item>
   <nz-form-item>
     <button nz-button type="submit" nzType="primary" nzSize="large" [nzLoading]="http.loading" nzBlock>
@@ -74,10 +74,10 @@
     </button>
   </nz-form-item>
 </form>
-<div class="other">
+<!-- <div class="other">
   其他登录方式
   <i nz-tooltip="in fact Auth0 via window" (click)="open('auth0', 'window')" nz-icon type="alipay-circle" class="icon"></i>
   <i nz-tooltip="in fact Github via redirect" (click)="open('github')" nz-icon type="taobao-circle" class="icon"></i>
   <i (click)="open('weibo', 'window')" nz-icon type="weibo-circle" class="icon"></i>
   <a class="register" routerLink="/passport/register">注册账户</a>
-</div>
+</div> -->

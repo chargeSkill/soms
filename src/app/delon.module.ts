@@ -7,7 +7,7 @@ import { throwIfAlreadyLoaded } from '@core';
 
 import { AlainThemeModule } from '@delon/theme';
 
-// #region mock
+// #region mock 这里是mock拦截，正式环境要去除
 import { DelonMockModule } from '@delon/mock';
 import * as MOCKDATA from '../../_mock';
 import { environment } from '@env/environment';
@@ -50,12 +50,20 @@ export function fnPageHeaderConfig(): PageHeaderConfig {
 }
 
 import { DelonAuthConfig } from '@delon/auth';
-export function fnDelonAuthConfig(): DelonAuthConfig {
-  return {
-    ...new DelonAuthConfig(),
-    ...{ login_url: '/passport/login' } as DelonAuthConfig
-  };
-}
+  export function fnDelonAuthConfig(): DelonAuthConfig {
+    console.log("delonAuthConfig")
+    return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
+      login_url: '/passport/login',
+      token_send_key: 'Authorization',
+      allow_anonymous_key: '_allow_anonymous'
+    });
+  }
+// export function fnDelonAuthConfig(): DelonAuthConfig {
+//   return {
+//     ...new DelonAuthConfig(),
+//     ...{ login_url: '/passport/login' } as DelonAuthConfig
+//   };
+// }
 
 import { STConfig } from '@delon/abc';
 export function fnSTConfig(): STConfig {

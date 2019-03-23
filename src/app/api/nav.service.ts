@@ -4,8 +4,9 @@ import { catchError } from 'rxjs/operators';
 import { namespaceSVG, namespaceHTML } from '@angular/core/src/render3/instructions';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
+
 export class NavApiService {
   constructor(public httpClient: HttpClient) { } 
 
@@ -19,5 +20,9 @@ export class NavApiService {
 
   getNavList(params) {
     return this.httpClient.post(`tree/loadUserTree`,params); 
+  }
+
+  getCylinder(params){
+    return this.httpClient.post(`cylinder/findPageData`,params)
   }
 }  
