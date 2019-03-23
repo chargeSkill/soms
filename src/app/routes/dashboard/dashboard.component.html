@@ -9,28 +9,97 @@
               <div class="font-view" style="padding:10px;border:1px solid #000; height:300px;margin: 0 4px;">
 
               </div>
-              <div class="">
-                <ul style="display:flex;">
-                  <li *ngFor="let item of list">
-                    <div class="bar-box">
-                      <h4>{{item.name}}</h4>
-                      <h4>{{item.unit}}</h4>
-                      <div class="bar">
-                        <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
-                        <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
-                        <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
-                        <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
-                        <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
-                        <div class="bar-analog-icon" [ngStyle]="fnReturnState(item.analog).style"></div>
-                        <div class="bar-mark bar-mark-danger">0.8</div>
-                        <div class="bar-mark bar-mark-warn">24.3</div>
-                        <div class="bar-mark bar-mark-normal">57.2</div>
-                        <div class="bar-mark bar-mark-error">80.8</div>
-                        <div class="bar-analog-value bar-status-{{fnReturnState(item.analog).state}}-color" [ngStyle]="fnReturnState(item.analog).style">{{item.analog}}</div>
+              <div style="display:flex;flex-wrap: wrap;">
+                <div class="">
+                  <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">A1缸气缸排温</h4>
+                  <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
+                    <li *ngFor="let item of list;let i = index">
+                      <div class="bar-box" (click)="addActive(i)" [ngClass]="initIndex === i ? 'active' : ''">
+                        <h4>{{item.name}}</h4>
+                        <h4>{{item.unit}}{{i}}</h4>
+                        <div class="bar">
+                          <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                          <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                          <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
+                          <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                          <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                          <div class="bar-analog-icon" [ngStyle]="fnReturnState(item.analog).style"></div>
+                          <div class="bar-mark bar-mark-danger">0.8</div>
+                          <div class="bar-mark bar-mark-warn">24.3</div>
+                          <div class="bar-mark bar-mark-normal">57.2</div>
+                          <div class="bar-mark bar-mark-error">80.8</div>
+                          <div class="bar-analog-value bar-status-{{fnReturnState(item.analog).state}}-color"
+                            [ngStyle]="fnReturnState(item.analog).style">{{item.analog}}</div>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
+                    </li>
+                    <li>
+                      <div class="bar-box" (click)="addActive(-2)" [ngClass]="initIndex === -2 ? 'active' : ''">
+                        <h4>A1缸气缸排温</h4>
+                        <h4>（℃）</h4>
+                        <div class="bar">
+                          <span class="bar-status bar-status-danger bar-status-unnormal"></span>
+                          <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+                          <span class="bar-status bar-status-normal bar-status-unnormal"></span>
+                          <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+                          <span class="bar-status bar-status-danger"></span>
+                          <div class="bar-analog-icon"></div>
+                          <div class="bar-analog-value">11</div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="">
+                  <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">A2缸气缸排温</h4>
+                  <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
+                    <li *ngFor="let item of list2;let i = index">
+                      <div class="bar-box" (click)="addActive2(i)" [ngClass]="initIndex2 === i ? 'active' : ''">
+                        <h4>{{item.name}}</h4>
+                        <h4>{{item.unit}}{{i}}</h4>
+                        <div class="bar">
+                          <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                          <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                          <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
+                          <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                          <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                          <div class="bar-analog-icon" [ngStyle]="fnReturnState(item.analog).style"></div>
+                          <div class="bar-mark bar-mark-danger">0.8</div>
+                          <div class="bar-mark bar-mark-warn">24.3</div>
+                          <div class="bar-mark bar-mark-normal">57.2</div>
+                          <div class="bar-mark bar-mark-error">80.8</div>
+                          <div class="bar-analog-value bar-status-{{fnReturnState(item.analog).state}}-color"
+                            [ngStyle]="fnReturnState(item.analog).style">{{item.analog}}</div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="">
+                  <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">B2缸气缸排温</h4>
+                  <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
+                    <li *ngFor="let item of list3;let i = index">
+                      <div class="bar-box">
+                        <h4>{{item.name}}</h4>
+                        <h4>{{item.unit}}{{i}}</h4>
+                        <div class="bar">
+                          <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                          <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                          <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
+                          <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                          <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                          <div class="bar-analog-icon" [ngStyle]="fnReturnState(item.analog).style"></div>
+                          <div class="bar-mark bar-mark-danger">0.8</div>
+                          <div class="bar-mark bar-mark-warn">24.3</div>
+                          <div class="bar-mark bar-mark-normal">57.2</div>
+                          <div class="bar-mark bar-mark-error">80.8</div>
+                          <div class="bar-analog-value bar-status-{{fnReturnState(item.analog).state}}-color"
+                            [ngStyle]="fnReturnState(item.analog).style">{{item.analog}}</div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="my-silde">
@@ -45,13 +114,13 @@
           </div>
         </nz-tab>
         <nz-tab nzTitle="趋势分析">
-          324
+          趋势分析 pages
         </nz-tab>
         <nz-tab nzTitle="衰退分析">
-          122222213
+          衰退分析 pages
         </nz-tab>
         <nz-tab nzTitle="事件处理">
-          122222213
+          事件处理 pages
         </nz-tab>
         <!-- <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.title">
           <div class="my-container">

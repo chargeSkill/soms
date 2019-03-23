@@ -8,6 +8,8 @@ import { Subject } from 'rxjs';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
+  initIndex = -1;
+  initIndex2 = -1;
   tabs = [
     {
       title: '健康状态评估'
@@ -45,6 +47,60 @@ export class DashboardComponent implements OnInit {
       analog: 33
     }
   ]
+  list2 = [
+    {
+      name: 'A2列气缸排温',
+      unit: '（℃）',
+      analog: 45
+    },
+    {
+      name: 'B2列气缸排温',
+      unit: '（℃）',
+      analog: 26
+    },
+    {
+      name: 'C2列气缸排温',
+      unit: '（℃）',
+      analog: 14
+    }
+  ]
+  list3 = [
+    {
+      name: 'B2列气缸排温',
+      unit: '（℃）',
+      analog: 68
+    },
+    {
+      name: 'B4列气缸排温',
+      unit: '（℃）',
+      analog: 90
+    },
+    {
+      name: 'C2列气缸排温',
+      unit: '（℃）',
+      analog: 20
+    },
+    {
+      name: 'D3列气缸排温',
+      unit: '（℃）',
+      analog: 33
+    },
+    {
+      name: 'C2列气缸排温',
+      unit: '（℃）',
+      analog: 20
+    },
+    {
+      name: 'D3列气缸排温',
+      unit: '（℃）',
+      analog: 33
+    },
+    {
+      name: 'C2列气缸排温',
+      unit: '（℃）',
+      analog: 20
+    }
+  ]
 
   constructor(
     private http: _HttpClient
@@ -52,9 +108,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     
-    for(let i = 0;i< this.list.length; i++){
-      console.log(this.fnReturnState(this.list[i].analog))
-    }
+  }
+
+  addActive(index){
+    this.initIndex = index;
+  }
+
+  addActive2(index){
+    this.initIndex2 = index;
   }
 
   fnReturnState(num: any) {
@@ -78,24 +139,5 @@ export class DashboardComponent implements OnInit {
         bottom: num + "%"
       }
     };
-    // switch (num) {
-    //   case num >= 80.8:
-    //     state = 'danger';
-    //     break;
-    //   case num >= 57.2 && num < 80.8:
-    //     state = 'warn';
-    //     break;
-    //   case num >= 24.3 && num < 57.2:
-    //     state = 'nomarl';
-    //     break;
-    //   case num >= 0.8 && num < 24.3:
-    //     state = 'warn';
-    //     break;
-    //   case num >= 0 && num < 0.8:
-    //     state = 'danger';
-    //     break;
-    //   default:
-    //     state = 'unnomarl';
-    // }
   };
 }
