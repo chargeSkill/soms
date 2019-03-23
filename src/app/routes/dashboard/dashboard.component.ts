@@ -6,7 +6,7 @@ import { _HttpClient } from '@delon/theme';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-
+  tabs = [ 1, 2, 3 ];
   constructor(
     private http: _HttpClient
   ) { }

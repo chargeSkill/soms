@@ -6,9 +6,18 @@ import { namespaceSVG, namespaceHTML } from '@angular/core/src/render3/instructi
 @Injectable({
     providedIn: 'root',
 })
-export class DemoApiService {
+export class NavApiService {
   constructor(public httpClient: HttpClient) { } 
-  getApplications(tenantId) {
-    return this.httpClient.get(`dashboard/applications?${tenantId}`); 
+
+  login(params){
+    return this.httpClient.post(`login`,params); 
+  }
+
+  getJson(){
+    return this.httpClient.get(`nav.json`);
+  }
+
+  getNavList(params) {
+    return this.httpClient.post(`tree/loadUserTree`,params); 
   }
 }  
