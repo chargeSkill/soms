@@ -11,7 +11,7 @@ export class NavApiService {
   constructor(public httpClient: HttpClient) { } 
 
   login(params){
-    return this.httpClient.post(`login`,params); 
+    return this.httpClient.post(`login?_allow_anonymous=true`,params); 
   }
 
   getJson(){

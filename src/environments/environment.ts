@@ -6,8 +6,7 @@ export const environment = {
   SERVER_URL: `./`,
   production: false,
   useHash: true,
-  hmr: false,
-  baseurl: 'localhost:4200/'
+  hmr: false
 };
 
 /*

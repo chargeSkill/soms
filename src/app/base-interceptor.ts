@@ -32,7 +32,7 @@ const CODEMESSAGE = {
 };
 
 /*设置请求的基地址，方便替换*/
-const baseurl = environment.baseurl;
+// const baseurl = environment.baseurl;
 
 @Injectable()
 export class BaseInterceptor implements HttpInterceptor {
@@ -114,13 +114,17 @@ export class BaseInterceptor implements HttpInterceptor {
       url = environment.SERVER_URL + url;
     }
     let token = sessionStorage.getItem('token');
-    const newReq = req.clone({
-      url,
-      setHeaders: {
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': token ? token : ""
-      }
-    });
+    const newReq = req.clone({ url });
+    if(token){
+      newReq.headers = newReq.headers.set('Authorization', token);
+      // const newReq = req.clone({
+      //   url,
+      //   setHeaders: {
+      //     // 'Content-Type': 'application/x-www-form-urlencoded',
+      //     'Authorization': token ? token : ""
+      //   }
+      // });
+    }
     // let newReq = req.clone({
     //     url: req.hadBaseurl ? `${req.url}` : `${baseurl}${req.url}`,
     // });
