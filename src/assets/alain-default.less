@@ -23308,9 +23308,21 @@ body {
 @content-bg: #222224;
 @border-bottom-color: #535456;
 
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+.alain-default__content-title{
+  margin-bottom: 0;
+}
 .alain-default__header{
   border-bottom: 1px solid #535456;
   box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
+  background: url(../assets/bg_03.png) repeat;
+}
+.alain-default__aside{
+  background: url(../assets/bg_03.png) repeat;
 }
 
 .alain-default__aside:after{
@@ -23324,6 +23336,7 @@ body{
 .ant-tabs-bar {
   background: @bg-2;
   border-bottom: 1px solid @border-bottom-color;
+  margin: 0;
 }
 
 .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
@@ -23347,6 +23360,7 @@ body{
   border-left: 1px solid @border-bottom-color;
   background: @content-bg;
   color: @color-active;
+
 }
 // 可以通过 https://ng-alain.github.io/ng-alain/ 获取主题参数代码
 // The theme paraments can be generated at https://ng-alain.github.io/ng-alain/
