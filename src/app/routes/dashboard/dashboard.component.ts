@@ -21,7 +21,30 @@ export class DashboardComponent implements OnInit {
     {
       title: '事件处理',
     }
-   ];
+  ];
+
+  list = [
+    {
+      name: 'A列气缸排温',
+      unit: '（℃）',
+      analog: 68
+    },
+    {
+      name: 'B列气缸排温',
+      unit: '（℃）',
+      analog: 92
+    },
+    {
+      name: 'C列气缸排温',
+      unit: '（℃）',
+      analog: 20
+    },
+    {
+      name: 'D列气缸排温',
+      unit: '（℃）',
+      analog: 33
+    }
+  ]
   
   constructor(
     private http: _HttpClient

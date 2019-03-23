@@ -1,4 +1,5 @@
-@color: #aeafaf;
+@color: #7a7a7a;
+@color-active: #aeafaf;
 @bg-1: #292a2b;
 @bg-2: #141415;
 @content-bg: #222224;
@@ -28,6 +29,46 @@ body {
 
 }
 
+.flex-container-right{
+  display: flex;
+  .my-container{
+    min-height: 762px;
+    flex-grow: 1;
+  }
+  
+}
+
+.my-silde{
+  width: 300px;
+  min-height: 762px;
+  border-left: 1px solid #000;
+  padding: 16px;
+  color: @color;
+  h2{
+    color: @color;
+    font-size: 16px;
+  }
+  >ul{
+    >li{
+      margin: 15px 0;
+    }
+  }
+  .policy-state{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    &.policy-state-danger{
+      background: #bf3c58;
+    }
+    &.policy-state-warn{
+      background: #c48c00;
+    }
+  }
+
+}
+
 .bar-box {
   width: 120px;
   height: 200px;
@@ -43,6 +84,27 @@ body {
     height: 120px;
     width: 6px;
     position: relative;
+    .bar-mark{
+      font-size: 14px;
+      color: @color;
+      font-weight: bold;
+      position: absolute;
+      right: 12px;
+      margin-bottom: -14px;
+      &.bar-mark-danger{
+        bottom: 10%;
+      }
+      &.bar-mark-warn{
+        bottom: 35%;
+      }
+      &.bar-mark-normal{
+        bottom: 65%;
+      }
+      &.bar-mark-error{
+        bottom: 90%;
+      }
+    }
+
 
     .bar-analog-icon {
       position: absolute;
@@ -52,7 +114,7 @@ body {
       background: #000;
       border: 3px solid #fff;
       left: -2px;
-      top: 10%;
+      bottom: 10%;
     }
 
     .bar-analog-value {
@@ -60,8 +122,8 @@ body {
       font-size: 16px;
       font-weight: bold;
       left: 14px;
-      top: 10%;
-      margin-top: -8px;
+      bottom: 10%;
+      margin-bottom: -6px;
 
       &.bar-status-warn-color {
         color: #c48c00;
@@ -91,7 +153,7 @@ body {
           position: absolute;
           right: 8px;
           bottom: -11px;
-          color: #fff;
+          color: @color;
           width: 18px;
           font-weight: 900;
         }

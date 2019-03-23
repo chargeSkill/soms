@@ -117,7 +117,7 @@ export class BaseInterceptor implements HttpInterceptor {
     const newReq = req.clone({
       url,
       setHeaders: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': token ? token : ""
       }
     });

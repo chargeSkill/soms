@@ -1,34 +1,100 @@
 <div class="alain-default__content-title">
-  <nz-layout>
+  <nz-layout style="height:100%;">
     <div class="header-title">电力系统--1#主柴油发电机--气缸</div>
     <div class="card-container">
       <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'" [nzSize]="'large'">
-        <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.title">
-          <div class="bar-box">
-            <h4>A1缸气缸排温</h4>
-            <h4>（℃）</h4>
-            <div class="bar">
-              <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
-              <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
-              <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
-              <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
-              <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
-              <div class="bar-analog-icon"></div>
-              <div class="bar-analog-value bar-status-warn-color">89.1</div>
+        <nz-tab nzTitle="健康状态评估">
+          <div class="flex-container-right">
+            <div class="my-container">
+              <div class="font-view" style="padding:10px;border:1px solid #000; height:300px;margin: 0 4px;">
+
+              </div>
+              <div class="">
+                <ul>
+                  <li *ngFor="let item of list">
+                    <div class="bar-box">
+                      <h4>{{item.name}}</h4>
+                      <h4>{{item.unit}}</h4>
+                      <div class="bar">
+                        <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                        <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                        <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
+                        <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                        <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                        <div class="bar-analog-icon"></div>
+                        <div class="bar-mark bar-mark-danger">0.8</div>
+                        <div class="bar-mark bar-mark-warn">24.3</div>
+                        <div class="bar-mark bar-mark-normal">57.2</div>
+                        <div class="bar-mark bar-mark-error">80.8</div>
+                        <div class="bar-analog-value bar-status-warn-color">{{item.analog}}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="bar-box">
-            <div class="bar">
-              <span class="bar-status bar-status-danger bar-status-unnormal"></span>
-              <span class="bar-status bar-status-warn bar-status-unnormal"></span>
-              <span class="bar-status bar-status-normal bar-status-unnormal"></span>
-              <span class="bar-status bar-status-warn bar-status-unnormal"></span>
-              <span class="bar-status bar-status-danger"></span>
-              <div class="bar-analog-icon"></div>
+            <div class="my-silde">
+              <h2>异常提醒的辅助决策</h2>
+              <ul>
+                <li><span class="policy-state policy-state-danger"></span>气缸缸套温度异常提醒</li>
+                <li><span class="policy-state policy-state-warn"></span>气缸出口排温异常</li>
+                <li><span class="policy-state policy-state-warn"></span>xx缸振动异常提醒（便携式）</li>
+              </ul>
             </div>
+
           </div>
-          <p>Content of Tab Pane {{ tab.title }}</p>
         </nz-tab>
+        <nz-tab nzTitle="趋势分析">
+          324
+        </nz-tab>
+        <nz-tab nzTitle="衰退分析">
+          122222213
+        </nz-tab>
+        <nz-tab nzTitle="事件处理">
+          122222213
+        </nz-tab>
+        <!-- <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.title">
+          <div class="my-container">
+            <div class="bar-box">
+              <h4>A1缸气缸排温</h4>
+              <h4>（℃）</h4>
+              <div class="bar">
+                <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
+                <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
+                <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
+                <div class="bar-analog-icon"></div>
+                <div class="bar-mark bar-mark-danger">0.8</div>
+                <div class="bar-mark bar-mark-warn">24.3</div>
+                <div class="bar-mark bar-mark-normal">57.2</div>
+                <div class="bar-mark bar-mark-error">80.8</div>
+                <div class="bar-analog-value bar-status-warn-color">89.1</div>
+              </div>
+            </div>
+            <div class="bar-box">
+              <div class="bar">
+                <span class="bar-status bar-status-danger bar-status-unnormal"></span>
+                <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+                <span class="bar-status bar-status-normal bar-status-unnormal"></span>
+                <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+                <span class="bar-status bar-status-danger"></span>
+                <div class="bar-analog-icon"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="my-silde">
+            <h2>异常提醒的辅助决策</h2>
+            <ul>
+              <li><span class="policy-state policy-state-danger"></span>气缸缸套温度异常提醒</li>
+              <li><span class="policy-state policy-state-warn"></span>气缸出口排温异常</li>
+              <li><span class="policy-state policy-state-warn"></span>xx缸振动异常提醒（便携式）</li>
+            </ul>
+            Content of Tab Pane {{ tab.title }}
+          </div>
+
+        </nz-tab> -->
       </nz-tabset>
     </div>
   </nz-layout>
