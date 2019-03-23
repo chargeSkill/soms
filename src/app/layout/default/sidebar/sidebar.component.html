@@ -11,34 +11,45 @@
   <!--<li nz-menu-item routerLink="/pro/account/center">个人中心</li>-->
   <!--<li nz-menu-item routerLink="/pro/account/settings">个人设置</li>-->
   <!--</ul>-->
-  <!--</nz-dropdown>--> 
+  <!--</nz-dropdown>-->
   <!--<sidebar-nav class="d-block py-lg"></sidebar-nav>-->
   <ul class="main-menu">
     <ng-template ngFor let-item [ngForOf]="userModules" let-i="index">
-      <li *ngIf="item.asAccess" [ngClass]="{'active':(selectedTopModule?.id == item.id)}" class="has-sub">
-        <a (click)="topMenuClick(item)">
-          <i class="{{item.css}}"></i>
+      <li [ngClass]="{'active':(selectedTopModule?.id == item.id)}" class="has-sub">
+        <a (click)="topMenuClick(item)" class="topAlink">
+          <i nz-icon type="menu-fold" theme="outline"></i>
           <span class="ui-text">{{item.name}}</span>
-          <span *ngIf="item?.child.length > 0"
-                [ngClass]="{'fa-angle-right':(selectedTopModule?.id != item.id),'fa-angle-down':(selectedTopModule?.id == item.id)}"
-                class="fa pull-right"></span>
+          <span *ngIf="item?.child && item?.child.length > 0 && (selectedTopModule?.id != item.id)" class="fa pull-right">
+            <i nz-icon [nzType]="'right'" class="arrowIcon"></i>
+          </span>
+          <span *ngIf="item?.child && item?.child.length > 0 && (selectedTopModule?.id == item.id)" class="fa pull-right">
+            <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
+          </span>
         </a>
         <ul [ngClass]="{'submenushow': (selectedTopModule?.id == item.id), 'submenuhide': (selectedTopModule?.id != item.id),'selectedMenu':(item.id == selectedModuleId)}">
           <li *ngFor="let menuItem of item?.child">
             <a style="overflow:hidden;text-overflow:ellipsis;" id="menu_{{menuItem.id}}" [class.active-menuitem]="menuItem.id == activeMenuId" (click)="leftMenuClick(menuItem)">
-              <i class="{{menuItem.css}}"></i>
+              <i [ngClass]="{'greenState': (menuItem.state == 1), 'yellowState': (menuItem.state == 2), 'redState': (menuItem.state == 3), 'secondStateHide': menuItem?.child && menuItem?.child.length > 0 && (menuItem.id == activeMenuId)}"></i>
+              <span *ngIf="menuItem?.child && menuItem?.child.length > 0 && (menuItem.id != activeMenuId)" class="fa pull-right">
+                <i nz-icon [nzType]="'right'" class="arrowIcon"></i>
+              </span>
+              <span *ngIf="menuItem?.child && menuItem?.child.length > 0 && (menuItem.id == activeMenuId)" class="fa pull-right">
+                <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
+              </span>
               <span class="ui-text">{{menuItem.name}}</span>
-              <span *ngIf="menuItem?.child.length > 0"
-                    [ngClass]="{'fa-angle-right':(menuItem.id != activeMenuId),'fa-angle-down':(menuItem.id == activeMenuId)}"
-                    class="fa pull-right"></span>
             </a>
             <div [ngClass]="{'submenushow': (menuItem.id == activeMenuId), 'submenuhide': (menuItem.id != activeMenuId), 'selectedMenu':(menuItem.id == selectedModuleId)}">
               <div *ngFor="let subMenu of menuItem?.child">
                 <a style="overflow:hidden;text-overflow:ellipsis;" id="menu_{{subMenu.id}}" (click)="leftSubMenuClick(subMenu,menuItem.id)"
                    [ngClass]="{'selectedMenu': (subMenu.id == selectedModuleId)}">
-                  <i class="{{subMenu.css}}"></i>
+                  <i [ngClass]="{'greenState': (menuItem.state == 1), 'yellowState': (menuItem.state == 2), 'redState': (menuItem.state == 3)}"></i>
                   <span class="ui-text">{{subMenu.name}}</span>
-                  <span *ngIf="subMenu?.child.length > 0" class="fa fa-angle-right pull-right"></span>
+                  <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && (subMenu.id != activeMenuId)" class="fa pull-right">
+                    <i nz-icon [nzType]="'right'" class="arrowIcon"></i>
+                  </span>
+                      <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && (subMenu.id == activeMenuId)" class="fa pull-right">
+                    <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
+                  </span>
                 </a>
                 <div
                   [ngClass]="{'subthirdmenushow': (subMenu.id == activeMenuId), 'subthirdmenuhide': (subMenu.id != activeMenuId), 'selectedMenu':(subMenu.id == selectedModuleId)}"
@@ -46,9 +57,9 @@
                   <a style="overflow:hidden;text-overflow:ellipsis;margin-left: 10%;" id="menu_{{thirdMenu.id}}"
                      (click)="leftThirdMenuClick(thirdMenu)"
                      [ngClass]="{'selectedMenu': (thirdMenu.id == selectedModuleId)}">
-                    <i class="{{thirdMenu.css}}"></i>
+                    <i [ngClass]="{'greenState': (thirdMenu.state == 1), 'yellowState': (thirdMenu.state == 2), 'redState': (thirdMenu.state == 3)}"></i>
                     <span class="ui-text">{{thirdMenu.name}}</span>
-                    <span *ngIf="thirdMenu?.child.length > 0" class="fa fa-angle-right pull-right"></span>
+                    <span *ngIf="thirdMenu?.child && thirdMenu?.child.length > 0" class="fa fa-angle-right pull-right"></span>
                   </a>
                 </div>
               </div>
