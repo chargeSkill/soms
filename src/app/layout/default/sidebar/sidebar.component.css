@@ -19,20 +19,21 @@
 }
 
 .sidebar-menu .main-menu {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding:0;
   list-style: none;
 }
 .sidebar-menu .main-menu a {
-  font-size:15px;
+  font-size:14px;
   color: #aeafaf;
   text-decoration: none;
   display: block;
   height:37px;
   line-height:37px;
   position:relative;
+  cursor:pointer;
 }
 .sidebar-menu .main-menu a.topAlink{
+  padding-left:10px;
   font-size: 16px;
   color:#7c7c7c;
   height:40px;
@@ -40,10 +41,59 @@
 }
 
 .sidebar-menu .main-menu a.topAlink > span > i {
-  font-size:12px;
+  font-size:10px;
   position:absolute;
-  right:10px;
-  top:12px;
+  right:20px;
+  top:15px;
+  color:#aeafaf;
+}
+
+.sidebar-menu .main-menu li ul li a > span > i {
+  font-size:10px;
+  color:#aeafaf;
+}
+
+.sidebar-menu .main-menu a.subAlink i.greenState,.sidebar-menu .main-menu a.subAlink i.yellowState,.sidebar-menu .main-menu a.subAlink i.redState{
+  position:absolute;
+  left:25px;
+  top:10px;
+}
+
+.sidebar-menu .main-menu a.subAlink span.subIcon{
+  position:absolute;
+  left:35px;
+}
+
+.sidebar-menu .main-menu a.subAlink span.ui-text{
+  position:absolute;
+  left:50px;
+}
+
+.sidebar-menu .main-menu a.thirdAlink i.greenState,.sidebar-menu .main-menu a.thirdAlink i.yellowState,.sidebar-menu .main-menu a.thirdAlink i.redState{
+  position:absolute;
+  left:50px;
+  top:10px;
+}
+
+.sidebar-menu .main-menu a.thirdAlink span.thirdIcon{
+  position:absolute;
+  left:60px;
+}
+
+.sidebar-menu .main-menu a.thirdAlink span.ui-text{
+  position:absolute;
+  left:75px;
+}
+
+.sidebar-menu .main-menu a.fourAlink i{
+  position:absolute;
+  left:60px;
+  top:10px;
+}
+
+.sidebar-menu .main-menu a.fourAlink span.ui-text{
+  position:absolute;
+  left:80px;
 }
 
 .sidebar-menu .main-menu a > i {
@@ -61,19 +111,7 @@
 .sidebar-menu .main-menu a > span {
   display: inline;
 }
-/*.sidebar-menu .main-menu a:hover {*/
-  /*color: #ffffff;*/
-/*}*/
-.sidebar-menu .main-menu li.active > a,.sidebar-menu .main-menu li.active ul li> a.active-menuitem,.sidebar-menu .main-menu li.active ul li> div a.selectedMenu {
-  color: #ffffff;
-}
 
-.sidebar-menu .main-menu > li.opened > ul {
-  display: block;
-}
-.sidebar-menu .main-menu > li.opened .opened > ul {
-  display: block;
-}
 .sidebar-menu .main-menu ul,.sidebar-menu .main-menu ul li > div {
   display: none;
   margin: 0;
@@ -93,33 +131,12 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-#layout-sidebar .layout-menu > a.active-menuitem {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+
+.sidebar-menu .main-menu a.activeMenuitem{
+  background:#252527;
 }
 
-.sidebar-menu .main-menu ul li {
-  position: relative;
-}
 
-.sidebar-menu .main-menu a {
-  cursor:pointer;
-}
-.sidebar-menu .main-menu ul li a {
-  padding-left: 35px;
-}
-.sidebar-menu .main-menu ul li div div a {
-  padding-left: 60px;
-}
-.sidebar-menu .main-menu ul li ul li ul li a {
-  padding-left: 85px;
-}
-.sidebar-menu .main-menu ul li ul li ul li ul li a {
-  padding-left: 110px;
-}
 
 
 
