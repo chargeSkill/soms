@@ -18,6 +18,10 @@
   display:none !important;
 }
 
+.sidebar-menu{
+  border-right:1px solid #535456;
+}
+
 .sidebar-menu .main-menu {
   padding:0;
   list-style: none;
@@ -134,7 +138,10 @@
 
 .sidebar-menu .main-menu a.activeMenuitem{
   background:#252527;
+  border-top:1px solid #535456;
+  border-bottom:1px solid #535456;
 }
+
 
 
 

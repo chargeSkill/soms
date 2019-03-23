@@ -9,12 +9,36 @@ import { NavApiService } from 'app/api/nav.service';
 })
 export class HeaderComponent {
   searchToggleStatus: boolean;
+  headerData: any = [];
 
   constructor(public settings: SettingsService, public api: NavApiService) {
     this.getCylinder({
       moduleId: '5c7361e3abbcdd0f00611a10'
     });
     this.getNav({});
+
+    this.headerData = [
+      {
+        text: '油液分析工具',
+        icon: 'menu-fold'
+      },
+      {
+        text: '离线振动巡检',
+        icon: 'menu-fold'
+      },
+      {
+        text: '在线振动监测',
+        icon: 'menu-fold'
+      },
+      {
+        text: '预警事件分析',
+        icon: 'menu-fold'
+      },
+      {
+        text: '报警事件分析',
+        icon: 'menu-fold'
+      }
+    ]
   }
 
   getNav(params){
