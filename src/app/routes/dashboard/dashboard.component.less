@@ -289,8 +289,44 @@ body {
               display:block;
               width:18px;
               height:18px;
+              cursor: pointer;
               border-radius:50%;
-              background:#00ce9f;
+              background: rgba(10, 158, 124, 0.64);
+              position: relative;
+              &.active{
+                transform: scale3d(1.4, 1.4, 1.4);
+                box-shadow: 2px 2px 1px 2px rgba(0,0,0,0.4);
+              }
+              &.warn-bg, &warn-est-bg {
+                background: rgba(196, 140, 0, 0.64);
+                &::before{
+                  background: #c48c00
+                }
+              }
+        
+              &.normal-bg {
+                background: rgba(10, 158, 124, 0.64);;
+                &::before{
+                  background: #00a076
+                }
+              }
+        
+              &.danger-bg, &danger-est-bg {
+                background: rgba(191, 60, 88, 0.64);
+                &::before{
+                  background: #bf3c58
+                }
+              }
+              &::before{
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background: #00a076;
+                border-radius: 50%;
+                top: 4px;
+                right: 4px;
+              }
             }
           }
         }

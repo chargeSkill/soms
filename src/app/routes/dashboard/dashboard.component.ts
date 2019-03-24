@@ -40,11 +40,13 @@ export class DashboardComponent implements OnInit {
       title: '事件处理',
     }
   ];
+  
   mockData = {
     "id": "5c9097c2abbcdd2254263abd",
     "moduleId": "5c7361e3abbcdd0f00611a10",
     "module": "cylinder",
-    "devices": [{
+    "devices": [
+      {
         "id": "5c909ad8abbcdd2ba897519c",
         "name": "A列气缸",
         "ename": "A_cylinder",
@@ -744,13 +746,18 @@ export class DashboardComponent implements OnInit {
       }
     ]
   }
-
+  AData = [this.mockData.devices[0]];
+  BData = [this.mockData.devices[1]];
+  A1Data = this.fnGetA1Data(this.mockData.devices.slice(2,8),0);
+  A2Data = this.fnGetA1Data(this.mockData.devices.slice(2,8),1);
+  B1Data = this.fnGetA1Data(this.mockData.devices.slice(9),0);
+  B2Data = this.fnGetA1Data(this.mockData.devices.slice(9),1);
   constructor(
     private http: _HttpClient
   ) { }
 
   ngOnInit() {
-
+    console.log(this.A2Data)
   }
 
   addActive(index) {
@@ -758,26 +765,61 @@ export class DashboardComponent implements OnInit {
     console.log("add active",index)
   }
 
-  // fnReturnState(num: any) {
-  //   let state: string = '';
-  //   if (num >= 0 && num < 0.8) {
-  //     state = 'danger';
-  //   } else if (num >= 0.8 && num < 24.3) {
-  //     state = 'warn';
-  //   } else if (num >= 24.3 && num < 57.2) {
-  //     state = 'normal';
-  //   } else if (num >= 57.2 && num < 80.8) {
-  //     state = 'warn';
-  //   } else if (num >= 80.8 && num <= 100) {
-  //     state = 'danger';
-  //   } else {
-  //     state = 'unnormal';
-  //   }
-  //   return {
-  //     state: state,
-  //     style: {
-  //       bottom: num + "%"
-  //     }
-  //   };
-  // };
+  fnGetA1Data(data,index){
+    let a1Data = [];
+    data.forEach(item => {
+      console.log('fnGetA1Data',item)
+      a1Data.push(item.properties[index])
+    });
+    return a1Data;
+  }
+
+  fnReturnState(item: any) {
+    let state: string = '';
+    let ceil = 100;
+    let floor = 0;
+    let err: boolean = true;
+    /**
+     * ceil、floor 代表临界值
+     * 刻度 l：低低 ll：低 h：高 hh：高高
+     * analog 代表当前值
+     */
+    if(this.fnCheckState(item.proRule)){
+      err = false;
+      state = 'unnormal';
+    }else{
+      let l = item.proRule.l; 
+      let ll = item.proRule.ll;
+      let h = item.proRule.h;
+      let hh = item.proRule.hh;
+      let num = item.analog;
+      if(num >= floor && num < l){
+        state = 'danger';
+      }else if(num >= l && num < ll){
+        state = 'warn';
+      }else if(num >= ll && num < h){
+        state = 'normal';
+      }else if(num >= h && num < hh){
+        state = 'warn-est';
+      }else if(num >= hh && num <= ceil){
+        state = 'danger-est';
+      }else{
+        state = 'unnormal';
+      }
+    }
+    return { state: state, err: err };
+  }
+
+  fnCheckState(oRule: any){
+    let isRule: boolean = false;
+    for(let rule in oRule){
+      if(rule !== 'ceil' && rule !== 'floor'){
+        if (!oRule[rule]) {
+          isRule = true;
+          break;
+        }
+      }
+    }
+    return isRule;
+  }
 }
