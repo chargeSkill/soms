@@ -39,7 +39,7 @@ body {
 }
 
 .my-silde{
-  width: 300px;
+  flex:0 0 252px;
   min-height: 762px;
   border-left: 1px solid #000;
   padding: 16px;
@@ -151,7 +151,7 @@ body {
       &.bar-status-unnormal {
         position: relative;
 
-        &::after {
+        &:not(:last-of-type)::after {
           content: '- -';
           position: absolute;
           right: 8px;

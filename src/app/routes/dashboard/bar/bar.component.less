@@ -17,46 +17,53 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  &.active{
+
+  &.active {
     background: #0e0e0f;
   }
-  h4{
+
+  h4 {
     color: @color;
     font-size: 14px;
   }
+
   .bar {
     height: 120px;
-    width: 6px;
+    width: 4px;
     position: relative;
-    .bar-mark{
+
+    .bar-mark {
       font-size: 14px;
       color: @color;
       font-weight: bold;
       position: absolute;
       right: 12px;
       margin-bottom: -14px;
-      &.bar-mark-danger{
+
+      &.bar-mark-danger {
         bottom: 10%;
       }
-      &.bar-mark-warn{
+
+      &.bar-mark-warn {
         bottom: 35%;
       }
-      &.bar-mark-normal{
+
+      &.bar-mark-normal {
         bottom: 65%;
       }
-      &.bar-mark-error{
+
+      &.bar-mark-error {
         bottom: 90%;
       }
     }
 
-
     .bar-analog-icon {
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #000;
-      border: 3px solid #fff;
+      border: 2px solid #fff;
       left: -2px;
       bottom: 10%;
     }
@@ -69,7 +76,7 @@
       bottom: 10%;
       margin-bottom: -6px;
 
-      &.bar-status-warn-color {
+      &.bar-status-warn-color, &.bar-status-warn-est-color {
         color: @warn-color;
       }
 
@@ -77,9 +84,29 @@
         color: @normal-color;
       }
 
-      &.bar-status-danger-color {
+      &.bar-status-danger-color, &.bar-status-danger-est-color {
         color: @danger-color;
       }
+    }
+
+    .bar-analog-danger-position {
+      bottom: -5%;
+    }
+
+    .bar-analog-warn-position {
+      bottom: 14%;
+    }
+
+    .bar-analog-normal-position {
+      bottom: 42%;
+    }
+
+    .bar-analog-warn-est-position {
+      bottom: 72%;
+    }
+
+    .bar-analog-danger-est-position {
+      bottom: 92%;
     }
 
     .bar-status {
@@ -92,7 +119,7 @@
       &.bar-status-unnormal {
         position: relative;
 
-        &::after {
+        &:not(:last-of-type)::after {
           content: '- -';
           position: absolute;
           right: 8px;
@@ -118,7 +145,6 @@
       &.bar-status-normal-bg {
         background: @normal-color;
       }
-
 
       &.bar-status-danger {
         height: 10%;

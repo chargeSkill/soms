@@ -1,17 +1,26 @@
 <div class="bar-box">
-  <h4>A1缸气缸排温</h4>
-  <h4>（℃）</h4>
-  <div class="bar">
+  <h4>{{item.name}}</h4>
+  <h4>{{item.type == 0 ? '（℃）': '（℉）'}}</h4>
+  <div class="bar" *ngIf="fnReturnState(item).err">
     <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
     <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
     <span class="bar-status bar-status-normal-bg bar-status-normal"></span>
     <span class="bar-status bar-status-warn-bg bar-status-warn"></span>
     <span class="bar-status bar-status-danger-bg bar-status-danger"></span>
-    <div class="bar-analog-icon"></div>
-    <div class="bar-mark bar-mark-danger">0.8</div>
-    <div class="bar-mark bar-mark-warn">24.3</div>
-    <div class="bar-mark bar-mark-normal">57.2</div>
-    <div class="bar-mark bar-mark-error">80.8</div>
-    <div class="bar-analog-value bar-status-warn-color">89.1</div>
+    <div class="bar-mark bar-mark-danger">{{item.proRule.l}}</div>
+    <div class="bar-mark bar-mark-warn">{{item.proRule.ll}}</div>
+    <div class="bar-mark bar-mark-normal">{{item.proRule.h}}</div>
+    <div class="bar-mark bar-mark-error">{{item.proRule.hh}}</div>
+    <div class="bar-analog-icon bar-analog-{{fnReturnState(item).state}}-position"></div>
+    <div class="bar-analog-value bar-status-{{fnReturnState(item).state}}-color bar-analog-{{fnReturnState(item).state}}-position">{{item.analog}}</div>
+  </div>
+  <div class="bar" *ngIf="!fnReturnState(item).err">
+    <span class="bar-status bar-status-danger bar-status-unnormal"></span>
+    <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+    <span class="bar-status bar-status-normal bar-status-unnormal"></span>
+    <span class="bar-status bar-status-warn bar-status-unnormal"></span>
+    <span class="bar-status bar-status-danger bar-status-unnormal"></span>
+    <div class="bar-analog-icon bar-analog-{{fnReturnState(item).state}}-position"></div>
+    <div class="bar-analog-value bar-status-{{fnReturnState(item).state}}-color bar-analog-{{fnReturnState(item).state}}-position">{{item.analog}}</div>
   </div>
 </div>
