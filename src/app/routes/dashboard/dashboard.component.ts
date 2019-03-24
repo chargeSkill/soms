@@ -750,8 +750,8 @@ export class DashboardComponent implements OnInit {
   BData = [this.mockData.devices[1]];
   A1Data = this.fnGetA1Data(this.mockData.devices.slice(2,8),0);
   A2Data = this.fnGetA1Data(this.mockData.devices.slice(2,8),1);
-  B1Data = this.fnGetA1Data(this.mockData.devices.slice(9),0);
-  B2Data = this.fnGetA1Data(this.mockData.devices.slice(9),1);
+  B1Data = this.fnGetA1Data(this.mockData.devices.slice(8),0);
+  B2Data = this.fnGetA1Data(this.mockData.devices.slice(8),1);
   constructor(
     private http: _HttpClient
   ) { }
