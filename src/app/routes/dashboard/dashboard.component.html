@@ -21,7 +21,7 @@
                 <ul class="planform-container">
                   <li class="planform-list">
                     <div class="planForm-bg1">
-                      <div class="planForm-temp" style="margin-left:56px;padding-top:25px;" *ngFor="let bCol of BData">
+                      <div class="planForm-temp" style="margin-left:56px;margin-top:25px;" *ngFor="let bCol of BData">
                         <h6 class="cubicText">{{bCol.name}}</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-num">
@@ -36,8 +36,8 @@
                           </li>
                         </ul>
                       </div>
-                      <div class="planForm-temp" style="padding-top: 55px;margin-left: 60px;" *ngFor="let aCol of AData">
-                        <h6 class="cubicText">{{aCol.name}}</h6>
+                      <div class="planForm-temp" style="margin-top: 50px;margin-left: 60px;" *ngFor="let aCol of AData">
+                        <h6 class="cubicText" style="line-height:20px;">{{aCol.name}}</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-circle">
                             <ul>
@@ -55,7 +55,7 @@
                   </li>
                   <li class="planform-list">
                     <div class="planForm-bg2">
-                      <div class="planForm-temp" style="padding-top: 10px;margin-left: 58px;">
+                      <div class="planForm-temp" style="margin-top: 10px;margin-left: 58px;">
                         <h6 class="cubicText">1号温度</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-num">
@@ -70,17 +70,12 @@
                           </li>
                         </ul>
                       </div>
-                      <div class="planForm-temp" style="padding-top: 53px;margin-left: 58px;">
-                        <h6 class="cubicText">2号温度</h6>
+                      <div class="planForm-temp" style="margin-top: 40px;margin-left: 58px;">
+                        <h6 class="cubicText" style="line-height:20px;">2号温度</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-circle">
                             <ul>
                               <li *ngFor="let a2ColCircle of A2Data;let i = index"><span class="{{fnReturnState(a2ColCircle).state}}-bg" (click)="addActive(a2ColCircle.id)" [ngClass]="a2ColCircle.id === initIndex ? 'active' : ''"></span></li>
-                            </ul>
-                          </li>
-                          <li class="cubicOperation-num" style="display:none;">
-                            <ul class="cubicNum">
-                              <li *ngFor="let a2Col of A2Data"><span></span></li>
                             </ul>
                           </li>
                         </ul>
@@ -89,7 +84,7 @@
                   </li>
                   <li class="planform-list">
                     <div class="planForm-bg3">
-                      <div class="planForm-temp" style="padding-top: 10px;margin-left: -62px;">
+                      <div class="planForm-temp" style="margin-top: 10px;margin-left: -62px;">
                         <h6 class="cubicText">1号温度</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-num">
@@ -104,8 +99,8 @@
                           </li>
                         </ul>
                       </div>
-                      <div class="planForm-temp" style="padding-top: 32px;margin-left: -58px;">
-                        <h6 class="cubicText">2号温度</h6>
+                      <div class="planForm-temp" style="margin-top: 38px;margin-left: -58px;">
+                        <h6 class="cubicText" style="line-height:20px;">2号温度</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-circle">
                             <ul>
@@ -127,7 +122,7 @@
                     </li>
                   </ul>
                 </div>
-                
+
                 <!-- <div class="">
                   <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">B2缸气缸排温</h4>
                   <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
