@@ -21,73 +21,32 @@
                 <ul class="planform-container">
                   <li class="planform-list">
                     <div class="planForm-bg1">
-                      <div class="planForm-temp" style="margin-left:56px;padding-top:25px;">
-                        <h6 class="cubicText">B列气缸排温</h6>
+                      <div class="planForm-temp" style="margin-left:56px;padding-top:25px;" *ngFor="let bCol of BData">
+                        <h6 class="cubicText">{{bCol.name}}</h6>
                         <ul class="cubicOperation">
                           <li class="cubicOperation-num">
                             <ul class="cubicNum">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let bColName of bCol.properties"><span>{{bColName.name.slice(0,2)}}</span></li>
                             </ul>
                           </li>
                           <li class="cubicOperation-circle">
                             <ul>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                            </ul>
-                          </li>
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let bColCircle of bCol.properties"><span class="{{fnReturnState(bColCircle).state}}-bg" (click)="addActive(bColCircle.id)" [ngClass]="bColCircle.id === initIndex ? 'active' : ''"></span></li>
                             </ul>
                           </li>
                         </ul>
                       </div>
-
-                      <div class="planForm-temp" style="padding-top: 55px;margin-left: 60px;">
-                        <h6 class="cubicText">A列气缸排温</h6>
+                      <div class="planForm-temp" style="padding-top: 55px;margin-left: 60px;" *ngFor="let aCol of AData">
+                        <h6 class="cubicText">{{aCol.name}}</h6>
                         <ul class="cubicOperation">
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
-                            </ul>
-                          </li>
                           <li class="cubicOperation-circle">
                             <ul>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
+                              <li *ngFor="let aColCircle of aCol.properties"><span class="{{fnReturnState(aColCircle).state}}-bg" (click)="addActive(aColCircle.id)" [ngClass]="aColCircle.id === initIndex ? 'active' : ''"></span></li>
                             </ul>
                           </li>
                           <li class="cubicOperation-num">
                             <ul class="cubicNum">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let aColName of aCol.properties"><span>{{aColName.name.slice(0,2)}}</span></li>
                             </ul>
                           </li>
                         </ul>
@@ -101,67 +60,27 @@
                         <ul class="cubicOperation">
                           <li class="cubicOperation-num">
                             <ul class="cubicNum">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let a1Col of A1Data;let i = index"><span>A{{ i + 1 }}</span></li>
                             </ul>
                           </li>
                           <li class="cubicOperation-circle">
                             <ul>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                            </ul>
-                          </li>
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let a1ColCircle of A1Data;let i = index"><span class="{{fnReturnState(a1ColCircle).state}}-bg" (click)="addActive(a1ColCircle.id)" [ngClass]="a1ColCircle.id === initIndex ? 'active' : ''"></span></li>
                             </ul>
                           </li>
                         </ul>
                       </div>
-                      <div class="planForm-temp" style="padding-top: 30px;margin-left: 58px;">
+                      <div class="planForm-temp" style="padding-top: 53px;margin-left: 58px;">
                         <h6 class="cubicText">2号温度</h6>
                         <ul class="cubicOperation">
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
-                            </ul>
-                          </li>
                           <li class="cubicOperation-circle">
                             <ul>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
+                              <li *ngFor="let a2ColCircle of A2Data;let i = index"><span class="{{fnReturnState(a2ColCircle).state}}-bg" (click)="addActive(a2ColCircle.id)" [ngClass]="a2ColCircle.id === initIndex ? 'active' : ''"></span></li>
                             </ul>
                           </li>
                           <li class="cubicOperation-num" style="display:none;">
                             <ul class="cubicNum">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let a2Col of A2Data"><span></span></li>
                             </ul>
                           </li>
                         </ul>
@@ -175,32 +94,12 @@
                         <ul class="cubicOperation">
                           <li class="cubicOperation-num">
                             <ul class="cubicNum">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let b1Col of B1Data;let i = index"><span>B{{ i + 1 }}</span></li>
                             </ul>
                           </li>
                           <li class="cubicOperation-circle">
                             <ul>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                            </ul>
-                          </li>
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let b1ColCircle of B1Data"><span class="{{fnReturnState(b1ColCircle).state}}-bg" (click)="addActive(b1ColCircle.id)" [ngClass]="b1ColCircle.id === initIndex ? 'active' : ''"></span></li>
                             </ul>
                           </li>
                         </ul>
@@ -208,34 +107,9 @@
                       <div class="planForm-temp" style="padding-top: 32px;margin-left: -58px;">
                         <h6 class="cubicText">2号温度</h6>
                         <ul class="cubicOperation">
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
-                            </ul>
-                          </li>
                           <li class="cubicOperation-circle">
                             <ul>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                              <li><span></span></li>
-                            </ul>
-                          </li>
-                          <li class="cubicOperation-num">
-                            <ul class="cubicNum" style="display:none;">
-                              <li><span>1</span></li>
-                              <li><span>2</span></li>
-                              <li><span>3</span></li>
-                              <li><span>4</span></li>
-                              <li><span>5</span></li>
-                              <li><span>6</span></li>
+                              <li *ngFor="let b2ColCir of B2Data"><span class="{{fnReturnState(b2ColCir).state}}-bg" (click)="addActive(b2ColCir.id)" [ngClass]="b2ColCir.id === initIndex ? 'active' : ''"></span></li>
                             </ul>
                           </li>
                         </ul>
@@ -246,7 +120,7 @@
               </div>
               <div style="display:flex;flex-wrap: wrap;">
                 <div class="" *ngFor="let data of mockData.devices">
-                  <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">A1缸气缸排温</h4>
+                  <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">{{data.name}}</h4>
                   <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
                     <li *ngFor="let item of data.properties;let i = index" class="li-bg" (click)="addActive(item.id)" [ngClass]="item.id === initIndex ? 'active' : ''">
                       <app-bar [item]='item'></app-bar>
