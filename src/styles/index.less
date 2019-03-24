@@ -5,7 +5,9 @@ ul{
   padding: 0;
   list-style: none;
 }
-
+.alain-default{
+  overflow: hidden;
+}
 .alain-default__content-title{
   margin-bottom: 0;
 }
@@ -53,7 +55,9 @@ body{
   border-left: 1px solid @border-bottom-color;
   background: @content-bg;
   color: @color-active;
-
+  &:first-of-type{
+    border-left-color: transparent;
+  }
 }
 
 .alain-default__nav-wrap {

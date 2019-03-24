@@ -8,8 +8,8 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
   template: `
   <nz-dropdown nzPlacement="bottomRight">
     <div class="alain-default__nav-item d-flex align-items-center px-sm" nz-dropdown>
-      <nz-avatar [nzSrc]="settings.user.avatar" nzSize="small"></nz-avatar>
-      {{settings.user.name}}
+      <i nz-icon type="user" theme="outline"></i>
+      用户信息
     </div>
     <div nz-menu>
       <div nz-menu-item routerLink="/pro/account/center"><i nz-icon type="user"></i>
@@ -24,7 +24,10 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
+// <div class="alain-default__nav-item d-flex align-items-center px-sm" nz-dropdown>
+//       <nz-avatar [nzSrc]="settings.user.avatar" nzSize="small"></nz-avatar>
+//       {{settings.user.name}}
+//     </div>
 // <div nz-menu-item routerLink="/pro/account/settings"><i nz-icon type="setting" class="mr-sm"></i>
 // 个人设置
 // </div>

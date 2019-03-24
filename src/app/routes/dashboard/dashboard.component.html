@@ -240,13 +240,13 @@
                 <div class="" *ngFor="let data of mockData.devices">
                   <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">A1缸气缸排温</h4>
                   <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
-                    <li *ngFor="let item of data.properties;let i = index">
+                    <li *ngFor="let item of data.properties;let i = index" class="li-bg" (click)="addActive(item.id)" [ngClass]="item.id === initIndex ? 'active' : ''">
                       <app-bar [item]='item'></app-bar>
                     </li>
                   </ul>
                 </div>
                 
-                <div class="">
+                <!-- <div class="">
                   <h4 style="color:#7a7a7a;padding-left: 20px;margin-top: 16px;">B2缸气缸排温</h4>
                   <ul style="display:flex;flex-wrap: wrap;border: 1px solid #535456;">
                     <li *ngFor="let item of list3;let i = index">
@@ -270,7 +270,7 @@
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="my-silde">
