@@ -12,7 +12,7 @@ export class BarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.item)
+    // console.log(this.item)
   }
 
   fnReturnState(item: any) {

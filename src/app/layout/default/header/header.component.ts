@@ -12,7 +12,7 @@ export class HeaderComponent {
   headerData: any = [];
 
   constructor(public settings: SettingsService, public api: NavApiService) {
-    this.getCylinder(JSON.stringify({ moduleId: '5c7361e3abbcdd0f00611a10' }));
+    // this.getCylinder(JSON.stringify({ moduleId: '5c7361e3abbcdd0f00611a10' }));
     this.getNav({});
 
     this.headerData = [
