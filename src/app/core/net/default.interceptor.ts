@@ -110,9 +110,9 @@ export class DefaultInterceptor implements HttpInterceptor {
 
     const newReq = req.clone({ 
       url,
-      // setHeaders: {
-      //   'authorization' : 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU1MzI1OTI3MiwiaWF0IjoxNTUzMjU1NjcyfQ.YtLHUQvFhHjht6n2foEotB7dr2Wnj0ZbRflhWsO5H54'
-      // }
+      setHeaders: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     });
     return next.handle(newReq).pipe(
       mergeMap((event: any) => {

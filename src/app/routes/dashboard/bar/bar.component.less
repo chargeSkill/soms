@@ -1,0 +1,133 @@
+@color: #7a7a7a;
+@color-active: #aeafaf;
+@bg-1: #292a2b;
+@bg-2: #141415;
+@content-bg: #222224;
+@border-bottom-color: #535456;
+
+@danger-color: #bf3c58;
+@warn-color: #c48c00;
+@normal-color: #00a076;
+
+
+.bar-box {
+  width: 120px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &.active{
+    background: #0e0e0f;
+  }
+  h4{
+    color: @color;
+    font-size: 14px;
+  }
+  .bar {
+    height: 120px;
+    width: 6px;
+    position: relative;
+    .bar-mark{
+      font-size: 14px;
+      color: @color;
+      font-weight: bold;
+      position: absolute;
+      right: 12px;
+      margin-bottom: -14px;
+      &.bar-mark-danger{
+        bottom: 10%;
+      }
+      &.bar-mark-warn{
+        bottom: 35%;
+      }
+      &.bar-mark-normal{
+        bottom: 65%;
+      }
+      &.bar-mark-error{
+        bottom: 90%;
+      }
+    }
+
+
+    .bar-analog-icon {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #000;
+      border: 3px solid #fff;
+      left: -2px;
+      bottom: 10%;
+    }
+
+    .bar-analog-value {
+      position: absolute;
+      font-size: 16px;
+      font-weight: bold;
+      left: 14px;
+      bottom: 10%;
+      margin-bottom: -6px;
+
+      &.bar-status-warn-color {
+        color: @warn-color;
+      }
+
+      &.bar-status-normal-color {
+        color: @normal-color;
+      }
+
+      &.bar-status-danger-color {
+        color: @danger-color;
+      }
+    }
+
+    .bar-status {
+      background: #727272;
+      margin-bottom: 2px;
+      display: block;
+      width: 100%;
+      border-radius: 4px;
+
+      &.bar-status-unnormal {
+        position: relative;
+
+        &::after {
+          content: '- -';
+          position: absolute;
+          right: 8px;
+          bottom: -11px;
+          color: @color;
+          width: 18px;
+          font-weight: 900;
+        }
+      }
+
+      &.bar-status-warn {
+        height: 25%;
+      }
+
+      &.bar-status-warn-bg {
+        background: @warn-color;
+      }
+
+      &.bar-status-normal {
+        height: 30%;
+      }
+
+      &.bar-status-normal-bg {
+        background: @normal-color;
+      }
+
+
+      &.bar-status-danger {
+        height: 10%;
+      }
+
+      &.bar-status-danger-bg {
+        background: @danger-color;
+      }
+
+    }
+  }
+}

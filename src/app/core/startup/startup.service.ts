@@ -28,6 +28,7 @@ export class StartupService {
     private injector: Injector
   ) {
     iconSrv.addIcon(...ICONS_AUTO, ...ICONS);
+    console.log(tokenService.get().token);
   }
 
   private viaHttp(resolve: any, reject: any) {

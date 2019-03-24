@@ -55,6 +55,7 @@ import { DelonAuthConfig } from '@delon/auth';
     return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
       login_url: '/passport/login',
       token_send_key: 'Authorization',
+      ignores: [ /\/login/, /assets\// ],
       allow_anonymous_key: '_allow_anonymous'
     });
   }

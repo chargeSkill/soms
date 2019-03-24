@@ -10,6 +10,11 @@ import { Subject } from 'rxjs';
 export class DashboardComponent implements OnInit {
   initIndex = -1;
   initIndex2 = -1;
+  item = {
+    name: 'A列气缸排温',
+    unit: '（℃）',
+    analog: 68
+  }
   tabs = [
     {
       title: '健康状态评估'

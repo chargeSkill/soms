@@ -11,6 +11,7 @@ import { UserRegisterResultComponent } from './passport/register-result/register
 // single pages
 import { CallbackComponent } from './callback/callback.component';
 import { UserLockComponent } from './passport/lock/lock.component';
+import { BarComponent } from './dashboard/bar/bar.component';
 
 const COMPONENTS = [
   DashboardComponent,
@@ -21,6 +22,7 @@ const COMPONENTS = [
   // single pages
   CallbackComponent,
   UserLockComponent,
+  BarComponent,
 ];
 const COMPONENTS_NOROUNT = [];
 

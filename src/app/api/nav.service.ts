@@ -23,6 +23,6 @@ export class NavApiService {
   }
 
   getCylinder(params){
-    return this.httpClient.post(`cylinder/findPageData`,params)
+    return this.httpClient.get(`cylinder/findPageData`,params)
   }
 }  
