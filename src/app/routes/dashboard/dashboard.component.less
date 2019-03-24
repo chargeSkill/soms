@@ -193,32 +193,22 @@ body {
 
 .font-view {
 
-  .planForm-title {
-    width:100%;
-    display:flex;
-    justify-content: space-around;
-
-    li {
-      width:32%;
-      box-sizing:border-box;
-      border-bottom:1px solid #535456;
-    }
-
-    h4 {
-      color:#bcbcbc;
-      font-size:16px;
-    }
-  }
-
   .planform-container{
     width:100%;
     display:flex;
     justify-content: space-around;
 
-    li {
+    li.planform-list {
       width:32%;
       height:200px;
       box-sizing:border-box;
+
+      h4 {
+        color:#bcbcbc;
+        font-size:16px;
+        padding-bottom:6px;
+        border-bottom:1px solid #535456;
+      }
 
       .planForm-bg1{
         width:100%;
@@ -239,6 +229,57 @@ body {
         height:100%;
         background:url(../../../assets/planform/planform3.png) no-repeat center;
         background-size:contain;
+      }
+
+      .planForm-temp{
+        width:300px;
+        height:60px;
+
+        .cubicText{
+          float:left;
+          width: calc(100% - 144px);
+          height:100%;
+          text-align:right;
+          font-size:14px;
+          color:#fff;
+          font-weight:bold;
+          line-height:64px;
+          padding-right:6px;
+        }
+
+        .cubicOperation{
+          float:left;
+          width:144px;
+          height:100%;
+
+          .cubicOperation-num{
+            height:20px;
+
+            ul li{
+              float:left;
+              width:18px;
+              line-height:20px;
+              margin:1px 3px;
+              color:#fff;
+              font-size:14px;
+              text-align:center;
+              font-weight:bold;
+            }
+          }
+
+          .cubicOperation-circle ul li{
+            float:left;
+            margin:1px 3px;
+
+            span{
+              display:block;
+              width:18px;
+              height:18px;
+              border-radius:50%;
+              background:#00ce9f;
+            }
+          }
+        }
       }
     }
   }
