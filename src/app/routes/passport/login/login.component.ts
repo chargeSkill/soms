@@ -135,7 +135,7 @@ export class UserLoginComponent implements OnDestroy {
         let url = this.tokenService.referrer.url || '/';
         if (url.includes('/passport')) url = '/';
         console.log("login sucess", res, url)
-        this.router.navigateByUrl(url);
+        this.router.navigateByUrl('/exception/404');
       });
     })
     // this.http

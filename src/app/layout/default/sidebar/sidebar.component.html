@@ -48,7 +48,7 @@
                   <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && (subMenu.id == activeMenuId)" class="thirdIcon">
                     <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
                   </span>
-                  <span class="ui-text">{{subMenu.name}}</span>
+                  <span class="ui-text" (click)="gotoPage(subMenu)">{{subMenu.name}}</span>
                 </a>
                 <div [ngClass]="{'subthirdmenushow': (subMenu.id == activeSubMenuId), 'subthirdmenuhide': (subMenu.id != activeSubMenuId)}" *ngFor="let thirdMenu of subMenu?.child">
                   <a class="fourAlink" style="overflow:hidden;text-overflow:ellipsis;margin-left: 10%;" id="menu_{{thirdMenu.id}}" (click)="leftThirdMenuClick(thirdMenu)">

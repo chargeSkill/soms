@@ -804,27 +804,27 @@ export class DashboardComponent implements OnInit {
     let err: boolean = true;
     /**
      * ceil、floor 代表临界值
-     * 刻度 l：低低 ll：低 h：高 hh：高高
+     * 刻度 ll：低低 l：低 h：高 hh：高高
      * analog 代表当前值
      */
     if(this.fnCheckState(item.proRule)){
       err = false;
       state = 'unnormal';
     }else{
-      let l = item.proRule.l; 
-      let ll = item.proRule.ll;
+      let ll = item.proRule.ll; 
+      let l = item.proRule.l;
       let h = item.proRule.h;
       let hh = item.proRule.hh;
       let num = item.analog;
-      if(num >= floor && num < l){
+      if(num < ll){
         state = 'danger';
-      }else if(num >= l && num < ll){
+      }else if(num >= ll && num < l){
         state = 'warn';
-      }else if(num >= ll && num < h){
+      }else if(num >= l && num < h){
         state = 'normal';
       }else if(num >= h && num < hh){
         state = 'warn-est';
-      }else if(num >= hh && num <= ceil){
+      }else if(num >= hh){
         state = 'danger-est';
       }else{
         state = 'unnormal';

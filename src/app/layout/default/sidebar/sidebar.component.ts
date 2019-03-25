@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { SettingsService } from '@delon/theme';
 import { Module } from '../../../models/module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'layout-sidebar',
@@ -17,11 +18,12 @@ export class SidebarComponent {
   // 选中顶级Module
   selectedTopModule: Module;
   // 用户Modules
-  userModules: Module[];
+  // userModules: Module[];
+  userModules: any;
   //点击一级菜单是否出现展开合住
   firstMenuExpand = true;
 
-  constructor(public settings: SettingsService) {
+  constructor(public settings: SettingsService, public router: Router) {
     let jsonData = {
      "status": "success",
      "data": [
@@ -59,7 +61,7 @@ export class SidebarComponent {
              "parentId": "5c6f7355abbcdd1fdc36658f",
              "treeOrder": 1,
              "url": "/2",
-             "state": "1",
+             "state": "3",
              "checked": false,
              "child": null,
              "tree": null,
@@ -149,7 +151,7 @@ export class SidebarComponent {
                  "parentId": "5c7360efabbcdd0f00611a0b",
                  "treeOrder": 3,
                  "url": "/313",
-                 "state": "1",
+                 "state": "2",
                  "checked": false,
                  "child": null,
                  "tree": null,
@@ -165,7 +167,7 @@ export class SidebarComponent {
                  "parentId": "5c7360efabbcdd0f00611a0b",
                  "treeOrder": 4,
                  "url": "/314",
-                 "state": "1",
+                 "state": "3",
                  "checked": false,
                  "child": null,
                  "tree": null,
@@ -267,7 +269,7 @@ export class SidebarComponent {
              "parentId": "5c7361cbabbcdd0f00611a0f",
              "treeOrder": 1,
              "url": "/4",
-             "state": "1",
+             "state": "2",
              "checked": false,
              "child": null,
              "tree": null,
@@ -283,7 +285,7 @@ export class SidebarComponent {
              "parentId": "5c7361cbabbcdd0f00611a0f",
              "treeOrder": 2,
              "url": "/42",
-             "state": "1",
+             "state": "2",
              "checked": false,
              "child": null,
              "tree": null,
@@ -341,7 +343,7 @@ export class SidebarComponent {
                  "parentId": "5c73c0144593daa73bd614ab",
                  "treeOrder": 2,
                  "url": "/512",
-                 "state": "1",
+                 "state": "3",
                  "checked": false,
                  "child": null,
                  "tree": null,
@@ -427,7 +429,7 @@ export class SidebarComponent {
              "parentId": "5c73c0144593daa73bd614a9",
              "treeOrder": 6,
              "url": "/56",
-             "state": "1",
+             "state": "2",
              "checked": false,
              "child": null,
              "tree": null,
@@ -449,6 +451,13 @@ export class SidebarComponent {
 
   }
 
+  gotoPage(item){
+    if(item.id === '5c7361e3abbcdd0f00611a10'){
+      this.router.navigateByUrl('/dashboard');
+    }else{
+      this.router.navigateByUrl('/exception/404');
+    }
+  }
 
   /**
    * 切换一级菜单
@@ -483,7 +492,8 @@ export class SidebarComponent {
    * @param {Module} item
    */
   leftMenuClick(item: Module) {
-    this.activeMenuId = ((this.activeMenuId === item.id && item.child.length !== 0) ? null : item.id);
+    this.gotoPage(item);
+    this.activeMenuId = ((this.activeMenuId === item.id && item.child && item.child.length !== 0) ? null : item.id);
     if (item.url) {
       // this.router.navigateByUrl(item.action);
       if (item.url) {
@@ -507,7 +517,7 @@ export class SidebarComponent {
    * @param {Module} item
    */
   leftSubMenuClick(item: Module) {
-    this.activeSubMenuId = ((this.activeSubMenuId === item.id && item.child.length !== 0) ? null : item.id);
+    this.activeSubMenuId = ((this.activeSubMenuId === item.id && item.child && item.child.length !== 0) ? null : item.id);
     if (item.url) {
       this.selectedModuleId = item.id;
       // this.router.navigateByUrl(item.action);
