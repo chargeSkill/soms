@@ -10,6 +10,7 @@ import { NavApiService } from 'app/api/nav.service';
 })
 export class DashboardComponent implements OnInit {
   initIndex = -1;
+  referState: any;
   item = {
     "id": "5c909ad8abbcdd2ba8975196",
     "name": "A1气缸排温",
@@ -768,6 +769,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getBarData({ moduleId: '5c7361e3abbcdd0f00611a10' });
+
+    this.referState = setInterval(() => {
+      this.getBarData({ moduleId: '5c7361e3abbcdd0f00611a10' });
+    },5000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.referState);
   }
 
   addActive(index) {

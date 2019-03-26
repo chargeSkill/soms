@@ -26,6 +26,7 @@ import { SettingsService } from '@delon/theme';
 
 import { environment } from '@env/environment';
 import { SettingDrawerComponent } from './setting-drawer/setting-drawer.component';
+import { NavApiService } from 'app/api/nav.service';
 
 @Component({
   selector: 'layout-default',
@@ -36,8 +37,11 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChild('settingHost', { read: ViewContainerRef })
   private settingHost: ViewContainerRef;
   isFetching = false;
+  userModules: any;
+  referState: any;
 
   constructor(
+    public api: NavApiService,
     router: Router,
     _message: NzMessageService,
     private resolver: ComponentFactoryResolver,
@@ -65,6 +69,17 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy 
         this.isFetching = false;
       }, 100);
     });
+    this.getNav({});
+    this.referState = setInterval(() => {
+      this.getNav({})
+    },5000);
+  }
+
+  getNav(params) {
+    this.api.getNavList(params).subscribe((res: any) =>{
+      this.userModules = res.data;
+      console.log("getNavss",res,res.data,this.userModules)
+    })
   }
 
   private setClass() {
@@ -103,5 +118,6 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy 
     const { unsubscribe$ } = this;
     unsubscribe$.next();
     unsubscribe$.complete();
+    clearInterval(this.referState);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy, Input } from '@angular/core';
 import { SettingsService } from '@delon/theme';
 import { Module } from '../../../models/module';
 import { Router } from '@angular/router';
@@ -10,14 +10,17 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
-
+  @Input()
+  public userModules: any;
   // 选中的画面ModuleId
   selectedModuleId: string;
   // 用户Modules
   // userModules: Module[];
-  userModules: any;
 
-  constructor(public settings: SettingsService, public router: Router) {
+  constructor(
+    public settings: SettingsService, 
+    public router: Router
+    ) {
     let jsonData = {
       "status": "success",
       "data": [
@@ -441,8 +444,8 @@ export class SidebarComponent {
       "msg": "加载菜单数据成功！"
     };
 
-    this.userModules = jsonData.data;
-
+    // this.userModules = jsonData.data;
+    console.log("hello sidebar ",this.userModules)
   }
 
   gotoPage(item){

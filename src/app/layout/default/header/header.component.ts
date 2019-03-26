@@ -12,8 +12,6 @@ export class HeaderComponent {
   headerData: any = [];
 
   constructor(public settings: SettingsService, public api: NavApiService) {
-    // this.getCylinder(JSON.stringify({ moduleId: '5c7361e3abbcdd0f00611a10' }));
-    this.getNav({});
 
     this.headerData = [
       {
@@ -37,19 +35,6 @@ export class HeaderComponent {
         icon: 'menu-fold'
       }
     ]
-  }
-
-  getNav(params){
-    this.api.getNavList(params).subscribe(data => {
-      console.log('get json',data);
-    })
-  }
-
-  getCylinder(params){
-    console.log('getCylinder:',params)
-    this.api.getCylinder(params).subscribe(res => {
-      console.log(res,'getCylinder')
-    })
   }
 
   toggleCollapsedSidebar() {
