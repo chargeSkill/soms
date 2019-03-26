@@ -16,41 +16,41 @@
   <ul class="main-menu">
     <ng-template ngFor let-item [ngForOf]="userModules" let-i="index">
       <li class="has-sub">
-        <a (click)="topMenuClick(item)" class="topAlink">
+        <a (click)="topMenuClick(item,$event)" class="topAlink" [class.activeMenuitem]="item.id == this.selectedModuleId && !item?.child">
           <i nz-icon type="menu-fold" theme="outline" style="color:#aeafaf;"></i>
           <span class="ui-text">{{item.name}}</span>
-          <span *ngIf="item?.child && item?.child.length > 0 && (selectedTopModule?.id != item.id)">
+          <span *ngIf="item?.child && item?.child.length > 0 && item.checked">
             <i nz-icon [nzType]="'right'" class="arrowIcon"></i>
           </span>
-          <span *ngIf="item?.child && item?.child.length > 0 && (selectedTopModule?.id == item.id)">
+          <span *ngIf="item?.child && item?.child.length > 0 && !item.checked">
             <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
           </span>
         </a>
-        <ul [ngClass]="{'submenushow': (selectedTopModule?.id == item.id), 'submenuhide': (selectedTopModule?.id != item.id)}">
+        <ul [ngClass]="{'submenushow': (item.child && item.child.length > 0 && !item.checked)}">
           <li *ngFor="let menuItem of item?.child">
-            <a class="subAlink" style="overflow:hidden;text-overflow:ellipsis;" id="menu_{{menuItem.id}}" [class.activeMenuitem]="menuItem.id == activeMenuId && !menuItem?.child" (click)="leftMenuClick(menuItem)">
-              <i [ngClass]="{'greenState': (menuItem.state == 1), 'yellowState': (menuItem.state == 2), 'redState': (menuItem.state == 3), 'secondStateHide': menuItem?.child && menuItem?.child.length > 0 && (menuItem.id == activeMenuId)}"></i>
-              <span *ngIf="menuItem?.child && menuItem?.child.length > 0 && (menuItem.id != activeMenuId)" class="subIcon">
+            <a class="subAlink" style="overflow:hidden;text-overflow:ellipsis;" id="menu_{{menuItem.id}}" [class.activeMenuitem]="menuItem.id == this.selectedModuleId && !menuItem?.child" (click)="leftMenuClick(menuItem)">
+              <i [ngClass]="{'greenState': (menuItem.state == 1), 'yellowState': (menuItem.state == 2), 'redState': (menuItem.state == 3), 'secondStateHide': menuItem?.child && menuItem?.child.length > 0 && (!menuItem.checked)}"></i>
+              <span *ngIf="menuItem?.child && menuItem?.child.length > 0 && menuItem.checked" class="subIcon">
                 <i nz-icon [nzType]="'right'" class="arrowIcon"></i>
               </span>
-              <span *ngIf="menuItem?.child && menuItem?.child.length > 0 && (menuItem.id == activeMenuId)" class="subIcon">
+              <span *ngIf="menuItem?.child && menuItem?.child.length > 0 && !menuItem.checked" class="subIcon">
                 <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
               </span>
               <span class="ui-text">{{menuItem.name}}</span>
             </a>
-            <div [ngClass]="{'submenushow': (menuItem.id == activeMenuId), 'submenuhide': (menuItem.id != activeMenuId)}">
+            <div [ngClass]="{'submenushow': (menuItem.child && menuItem.child.length > 0 && !menuItem.checked)}">
               <div *ngFor="let subMenu of menuItem?.child">
-                <a class="thirdAlink" style="overflow:hidden;text-overflow:ellipsis;" id="menu_{{subMenu.id}}" [class.activeMenuitem]="subMenu.id == activeSubMenuId && !subMenu?.child" (click)="leftSubMenuClick(subMenu,menuItem.id)">
+                <a class="thirdAlink" style="overflow:hidden;text-overflow:ellipsis;" id="menu_{{subMenu.id}}" [class.activeMenuitem]="subMenu.id == this.selectedModuleId && !subMenu?.child" (click)="leftSubMenuClick(subMenu,menuItem.id)">
                   <i [ngClass]="{'greenState': (menuItem.state == 1), 'yellowState': (menuItem.state == 2), 'redState': (menuItem.state == 3)}"></i>
-                  <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && (subMenu.id != activeMenuId)" class="thirdIcon">
+                  <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && subMenu.checked" class="thirdIcon">
                     <i nz-icon [nzType]="'right'" class="arrowIcon"></i>
                   </span>
-                  <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && (subMenu.id == activeMenuId)" class="thirdIcon">
+                  <span *ngIf="subMenu?.child && subMenu?.child.length > 0 && !subMenu.checked" class="thirdIcon">
                     <i nz-icon [nzType]="'down'" class="arrowIcon"></i>
                   </span>
-                  <span class="ui-text" (click)="gotoPage(subMenu)">{{subMenu.name}}</span>
+                  <span class="ui-text">{{subMenu.name}}</span>
                 </a>
-                <div [ngClass]="{'subthirdmenushow': (subMenu.id == activeSubMenuId), 'subthirdmenuhide': (subMenu.id != activeSubMenuId)}" *ngFor="let thirdMenu of subMenu?.child">
+                <div [ngClass]="{'subthirdmenushow': (subMenu.child && subMenu.child.length > 0 && !subMenu.checked), 'subthirdmenuhide': (!subMenu.child)}" *ngFor="let thirdMenu of subMenu?.child">
                   <a class="fourAlink" style="overflow:hidden;text-overflow:ellipsis;margin-left: 10%;" id="menu_{{thirdMenu.id}}" (click)="leftThirdMenuClick(thirdMenu)">
                     <i [ngClass]="{'greenState': (thirdMenu.state == 1), 'yellowState': (thirdMenu.state == 2), 'redState': (thirdMenu.state == 3)}"></i>
                     <span class="ui-text">{{thirdMenu.name}}</span>
