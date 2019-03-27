@@ -1,0 +1,34 @@
+<div class="planForm-bg1">
+  <div class="planForm-temp" style="margin-left:56px;margin-top:25px;" *ngFor="let bCol of BData">
+    <h6 class="cubicText">{{bCol.name}}</h6>
+    <ul class="cubicOperation">
+      <li class="cubicOperation-num">
+        <ul class="cubicNum">
+          <li *ngFor="let bColName of bCol.properties"><span>{{bColName.name.slice(0,2)}}</span></li>
+        </ul>
+      </li>
+      <li class="cubicOperation-circle">
+        <ul>
+          <li *ngFor="let bColCircle of bCol.properties"><span class="{{fnReturnState(bColCircle).state}}-bg"
+              (click)="addActive(bColCircle.id)" [ngClass]="bColCircle.id === initIndex ? 'active' : ''"></span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="planForm-temp" style="margin-top: 50px;margin-left: 60px;" *ngFor="let aCol of AData">
+    <h6 class="cubicText" style="line-height:20px;">{{aCol.name}}</h6>
+    <ul class="cubicOperation">
+      <li class="cubicOperation-circle">
+        <ul>
+          <li *ngFor="let aColCircle of aCol.properties"><span class="{{fnReturnState(aColCircle).state}}-bg"
+              (click)="addActive(aColCircle.id)" [ngClass]="aColCircle.id === initIndex ? 'active' : ''"></span></li>
+        </ul>
+      </li>
+      <li class="cubicOperation-num">
+        <ul class="cubicNum">
+          <li *ngFor="let aColName of aCol.properties"><span>{{aColName.name.slice(0,2)}}</span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

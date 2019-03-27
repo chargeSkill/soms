@@ -71,8 +71,19 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy 
     });
     this.getNav({});
     this.referState = setInterval(() => {
-      this.getNav({})
+      this.api.getNavList({}).subscribe((res: any) =>{
+        this.fnReferState(this.userModules,res.data);
+      })
     },5000);
+  }
+
+  fnReferState(data,res){
+    data.forEach((item,index) =>{
+      item.state = res[index].state;
+      if(item.child && item.child.length){
+        this.fnReferState(item.child,res[index].child);
+      }
+    })
   }
 
   getNav(params) {

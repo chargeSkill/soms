@@ -44,7 +44,6 @@ export class HeaderUserComponent {
 
   logout() {
     this.tokenService.clear();
-    localStorage.removeItem("authorization");
     this.router.navigateByUrl(this.tokenService.login_url);
   }
 }
